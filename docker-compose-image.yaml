@@ -10,6 +10,11 @@ services:
         env_file:
             - .env
         environment:
+         - GAIANET_MODEL=llama3b
+            - GAIANET_SERVER_URL=https://llama3b.gaia.domains/v1
+            - GAIANET_EMBEDDING_MODEL=nomic-embed
+            - USE_GAIANET_EMBEDDING=TRUE
+            -DAEMON_PROCESS=TRUE
             - SERVER_PORT=3000
         ports:
             - "3000:3000"
