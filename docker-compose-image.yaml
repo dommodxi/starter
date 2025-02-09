@@ -1,0 +1,16 @@
+services:
+    dommodxi:
+        platform: linux/amd64
+        command: ["pnpm", "start", "--character=./characters/dommodxi.character.json"]
+        image: dommodxi-starter:v1
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./data:/app/data
+        env_file:
+            - .env
+        environment:
+            - SERVER_PORT=3000
+        ports:
+            - "3000:3000"
+        restart: always
