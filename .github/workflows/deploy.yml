@@ -48,7 +48,7 @@ jobs:
           TWITTER_EMAIL: ${{ secrets.TWITTER_EMAIL }}
           TWITTER_2FA_SECRET: ${{ secrets.TWITTER_2FA_SECRET }}
         run: |
-          docker-compose -f docker-compose-image.yaml up -d
+          docker compose -f docker-compose-image.yaml up -d
           # Wait for the service to be ready
           sleep 10
           # Copy the static files from the container
