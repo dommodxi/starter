@@ -43,15 +43,10 @@ jobs:
           DAEMON_PROCESS: "TRUE"
           SERVER_PORT: 3000
           # Secrets from GitHub
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
-          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
-          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-          SOLANA_PRIVATE_KEY: ${{ secrets.SOLANA_PRIVATE_KEY }}
-          STARKNET_PRIVATE_KEY: ${{ secrets.STARKNET_PRIVATE_KEY }}
+          TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
+          TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
+          TWITTER_EMAIL: ${{ secrets.TWITTER_EMAIL }}
+          TWITTER_2FA_SECRET: ${{ secrets.TWITTER_2FA_SECRET }}
         run: |
           docker-compose -f docker-compose-image.yaml up -d
           # Wait for the service to be ready
