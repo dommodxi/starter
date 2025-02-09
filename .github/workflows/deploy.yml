@@ -35,12 +35,23 @@ jobs:
 
       - name: Start container and export static files
         env:
+          # Non-sensitive configuration
           GAIANET_MODEL: llama3b
           GAIANET_SERVER_URL: https://llama3b.gaia.domains/v1
           GAIANET_EMBEDDING_MODEL: nomic-embed
           USE_GAIANET_EMBEDDING: "TRUE"
           DAEMON_PROCESS: "TRUE"
           SERVER_PORT: 3000
+          # Secrets from GitHub
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          SOLANA_PRIVATE_KEY: ${{ secrets.SOLANA_PRIVATE_KEY }}
+          STARKNET_PRIVATE_KEY: ${{ secrets.STARKNET_PRIVATE_KEY }}
         run: |
           docker-compose -f docker-compose-image.yaml up -d
           # Wait for the service to be ready
