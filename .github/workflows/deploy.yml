@@ -34,6 +34,13 @@ jobs:
           platforms: linux/amd64
 
       - name: Start container and export static files
+        env:
+          GAIANET_MODEL: llama3b
+          GAIANET_SERVER_URL: https://llama3b.gaia.domains/v1
+          GAIANET_EMBEDDING_MODEL: nomic-embed
+          USE_GAIANET_EMBEDDING: "TRUE"
+          DAEMON_PROCESS: "TRUE"
+          SERVER_PORT: 3000
         run: |
           docker-compose -f docker-compose-image.yaml up -d
           # Wait for the service to be ready
